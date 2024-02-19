@@ -1,0 +1,34 @@
+# Dir IP: 192.168.137.x
+
+# OBTENER DIR IP
+ifconfig wlan0
+
+# Iniciar raspberry
+ssh pi@192.168.137.146 -> yes -> password
+
+# CONFIGURACION GENERAL
+sudo raspi-config + flechas
+
+# CONFIGURACION REDES WIFI  
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+nano = editor de texto 
+
+sudo iwlist wlan0 scan | egrep -i 'SSID'
+
+# Borrar archivos(carpetas) pi
+rm (-r) dir
+
+#copiar archivos del pc a la raspberry
+# ¡¡¡NUEVO CMD!!! # Entramos en la carpeta del archivo
+scp nombrearchivo usuario@192.168.137.77:/home/pi/carpetadestino
+scp -r prueba_me_raspberry pi@192.168.0.10:/home/pi/Desktop/
+extra: -r para carpetas
+
+# Ejecutar archivo python
+python3 nombrearchivo.py
+
+# Apagar raspberry
+sudo shutdown -h now
+
+
+scp -r templates pi@192.168.137.138:/home/pi/Desktop/me_raspberry
