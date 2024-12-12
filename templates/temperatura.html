@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEMPERATURA</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    #una-capa {
+      margin: 0 auto;
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 22px;
+      color: #333;
+    }
+
+    p2 {
+      font-size: 16px;
+      color: #333;
+    }
+
+    p.tmp1 {
+      font-size: 18px;
+      color: #333;
+    }
+
+    p3 {
+      font-size: 16px;
+      color: red;
+    }
+
+    p.tmp3 {
+      font-size: 18px;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="una-capa">
+    <h1>CONTROL DE TEMPERATURA.</h1>
+    <br>
+    <br>
+    <p3>TEMPERATURA (EXTERIOR):</p3>
+    <p class="tmp3"> {{tmp3}} ºC.</p>
+    <br>
+    <p2>TEMPERATURA Y HUMEDAD (INTERIOR):</p2>
+    <p class="tmp1"> {{tmp1}} ºC  -  {{hmt1}}% HR.</p>
+    <br>
+    <img src="{{ url_for('static', filename='images/termometro.jpg') }}" width=192 height=192>
+    <br>
+    <form method="GET">
+      <button type="submit" formaction="/"> INICIO </button>
+    </form>
+    <br>
+  </div>
+  <script>setTimeout(() => { document.location.reload(); }, 10000);</script>
+</body>
+
+</html>

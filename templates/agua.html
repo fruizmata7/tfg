@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control y medida de agua</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    #una-capa {
+      margin: 0 auto;
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 24px;
+      color: blue;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="una-capa">
+    <h1>Esta es la página secundaria para controlar el tanque de agua.</h1>
+    <p>Aquí añadiremos las nuevas funcionalidades.</p>
+    <img src="{{ url_for('static', filename='images/grifo_agua.jpg') }} " width=200 height=200>
+    <br>
+    <form method="GET">
+        <button type="submit" formaction="/"> INICIO </button>
+    </form>
+    <br>
+  </div>
+</body>  
+
+</HTML> 

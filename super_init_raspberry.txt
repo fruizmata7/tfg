@@ -1,0 +1,81 @@
+# Dir IP: 172.20.10.x
+
+# OBTENER DIR IP
+ifconfig wlan0
+
+# Iniciar raspberry
+ssh pi@ip_raspberry -> yes -> password
+ssh pi@172.20.10.120
+ssh pi@192.168.0.31
+
+tail -f -n +1 msgs.log
+
+
+# CONFIGURACION GENERAL
+sudo raspi-config + flechas
+
+
+# CONFIGURACION REDES WIFI  
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+nano = editor de texto 
+sudo iwlist wlan0 scan | egrep -i 'SSID'
+
+
+# Borrar archivos(carpetas) pi
+rm (-r) dir
+
+
+# Renombrar / mover carpetas
+mv /home/pi/oldname /home/pi/newname
+mv /home/pi/tfg/backup_flask_raspberry_chopped.py /home/pi/TFG_v3/
+
+mv /home/pi/tfg/flask_raspberry_chopped.py final_rasp /home/pi/tfg/flask_raspberry_chopped_corrupt.py
+
+
+
+#copiar archivos del pc a la raspberry
+# ¡¡¡NUEVO CMD!!! # Entramos en la carpeta del archivo
+scp nombrearchivo usuario@172.20.10.120:/home/pi/carpetadestino
+scp -r prueba_me_raspberry pi@172.20.10.120:/home/pi/TFG/
+extra: -r para carpetas
+
+scp -r templates pi@172.20.10.120:/home/pi/TFG/final
+scp flask_raspberry_chopped.py pi@172.20.10.120:/home/pi/tfg/
+scp alarmas.html pi@172.20.10.120:/home/pi/tfg/templates
+scp -r def pi@172.20.10.120:/home/pi/TFG/
+scp telegram_bot.txt pi@172.20.10.120:/home/pi/TFG/def
+
+scp -r templates pi@172.20.10.120:/home/pi/Desktop/me_raspberry
+
+
+
+#copiar archivos de la raspberry al pc
+scp -r usuario@ip_raspberry:/ruta_de_la_carpeta_en_RPi ruta_de_destino_en_tu_ordenador
+scp -r pi@172.20.10.120:/home/pi/TFG/templates C:\Users\Fernando\Desktop\TFG\final
+scp -r pi@172.20.10.120:/home/pi/TFG C:\Users\Fernando\Desktop\TFG\comp2706rpi
+scp -r pi@172.20.10.120:/home/pi/tfg C:\Users\Fernando\Desktop\TFG\ENTREGADIC
+
+scp pi@172.20.10.120:/home/pi/tfg/flask_raspberry_chopped.py C:\Users\Fernando\Desktop\TFG\
+
+
+
+# Ejecutar archivo python
+python3 nombrearchivo.py
+python3 flask_raspberry_chopped.py
+
+# Apagar raspberry
+sudo shutdown -h now
+
+
+
+# Busca procesos que contengan la palabra python:
+ps -e | grep python
+
+
+
+# RASPBERRY INIT
+sudo raspi-config: abre el Raspberry Pi Configuration Tool. Elegimos la primera opción y añadimos redes WiFi mediante su ssid/psk.
+En el apartado de Interface Options
+
+tail -f -n +1 msgs.log
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="max-width=150, initial-scale=1.0">
+  <title>INFORMACIÓN DE MI TFG</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: left;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      margin-top: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+    }
+
+    body1 {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    
+    #una-capa {
+      margin: 0 auto;
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1{
+      color: blue;
+      font-size: 24px;
+      text-align: center;
+    }
+  
+    h2{
+      color:black;
+      font-size: 22px;
+      text-align: center;
+    }
+  
+    p1{
+      color: black;
+      font-size: 16px;
+      text-align: left;
+    }
+  
+    p2{
+      color: black;
+      font-size: 18px;
+    }
+  </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <h1>TFG de Fernando Ruiz Matallanos.</h1>
+      <h2>"Diseño de sistema embarcado de monitorización de vehículos basado en ordenadores monoplaca"</h2>
+      <p1>Utilizando un ordenador tipo Raspberry Pi se propone el desarrollo de un sistema embarcado en vehículos de recreo que permita realizar diversas funciones de monitorización y generación de alarmas.</p1>
+      <br>
+      <br>
+      <p1>Mediante la integración de sensores de temperatura, humedad, localización, etc. se desarrollará un sistema orientado al apoyo de los viajeros del vehículo.</p1>
+      <br>
+      <br>
+      <p1>Se incidirá en aplicaciones que permitan identificar situaciones de emergencia, como golpes de calor, intrusos/robos, etc.</p1>
+      <br>
+      <br>
+      <img> <img src="{{ url_for('static', filename='images/caravan2_bw.jpg') }} " width=200>
+      <br>
+      <br>
+      <p>TRABAJO FUTURO:</p>
+      <a href="/agua/"> Control de agua </a>
+      <br>
+      <br>
+      <a href="/alarmas/"> Control de alarmas </a>
+      <br>
+      <br>
+      <br>
+      <form method="GET">
+        <button type="submit" formaction="/"> INICIO </button>
+      </form>
+      <p>Versión 1.17.</p>
+    </div>
+  </body1>
+</HTML> 

@@ -1,0 +1,43 @@
+Iniciando el sistema...
+Chat ID y TOKEN correctos.
+[--- Press Ctrl + C to end the script ---]
+ * Serving Flask app 'flask_raspberry_chopped'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.120:5000
+[33mPress CTRL+C to quit[0m
+Temperature (tmp3): 21.69 °C
+Temperature (tmp3): 21.69 °C
+Temperature (tmp3): 21.75 °C
+Temperature (tmp3): 21.75 °C
+Temperature (tmp3): 21.75 °C
+Temperature (tmp3): 21.75 °C
+Temperature (tmp3): 21.75 °C
+Temperature (tmp3): 21.75 °C
+Temperature (tmp3): 21.81 °C
+Temperature (tmp3): 21.81 °C
+Temperature (tmp3): 21.81 °C
+Temperature (tmp3): 21.81 °C
+Temperature (tmp3): 21.81 °C
+Temperature (tmp3): 21.81 °C
+Temperature (tmp3): 21.81 °C
+Temperature (tmp3): 21.81 °C
+Temperature (tmp3): 21.81 °C
+Temperature (tmp3): 21.81 °C
+Temperature (tmp3): 21.81 °C
+Temperature (tmp3): 21.81 °C
+Temperature (tmp3): 21.81 °C
+Temperature (tmp3): 21.81 °C
+Temperature (tmp3): 21.88 °C
+Temperature (tmp3): 21.88 °C
+Temperature (tmp3): 21.88 °C
+Temperature (tmp3): 21.88 °C
+Temperature (tmp3): 21.88 °C
+Temperature (tmp3): 21.88 °C
+Temperature (tmp3): 21.88 °C
+Temperature (tmp3): 21.88 °C
+Temperature (tmp3): 21.88 °C
+Temperature (tmp3): 21.88 °C
+Temperature (tmp3): 21.88 °C

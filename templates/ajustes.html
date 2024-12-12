@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajustes del Sistema</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .relay-info {
+            margin-bottom: 20px;
+        }
+        .relay-link {
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ajustes del Sistema</h1>
+        <form action="/ajustes/" method="post">
+            <label for="ip_relay">IP del Relé:</label>
+            <input type="text" id="ip_relay" name="ip_relay" value="{{ data['data'][0]['relay'][0]['ip'] }}">
+            <label for="ip_system">IP del Sistema:</label>
+            <input type="text" id="ip_system" name="ip_system" value="{{ data['data'][0]['system'][0]['ip'] }}">
+            <input type="submit" value="Guardar">
+        </form>
+        {% for relay in data['data'][0]['relay'] %}
+            <div class="relay-info">
+                <p>IP del Relé {{ relay.id }}: {{ relay.ip }}</p>
+                <a href="http://{{ relay.ip }}" target="_blank" class="relay-link">ENLACE SHELLY RELÉ {{ relay.id }}</a>
+            </div>
+        {% endfor %}
+        <br>
+        <form method="GET">
+            <button type="submit" formaction="/reboot/" onclick="confirmaReinicio()" > REINICIAR SISTEMA </button>
+            <button type="submit" formaction="/turnoff/" onclick="confirmaApagado()" > APAGAR SISTEMA </button>
+        </form>
+        <form method="GET">
+            <button type="submit" formaction="/"> INICIO </button>
+        </form>
+        <br>
+        <br>
+    </div>
+</body>
+</html>
+
+<script>
+    function confirmaReinicio() {
+      if (confirm("Estás a punto de reiniciar del sistema.")) {
+         window.location.href = "/reboot/"; // Redirige a la ruta que maneja el reinicio
+      }
+    }
+  </script>
+
+<script>
+    function confirmaApagado() {
+      if (confirm("Estás a punto de apagar el sistema.")) {
+         window.location.href = "/turnoff/"; // Redirige a la ruta que maneja el reinicio
+      }
+    }
+  </script>

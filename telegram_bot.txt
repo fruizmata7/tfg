@@ -1,0 +1,2 @@
+bot_token=6184291140:AAEAFnh1Sp_UWsAELaEnSHQPsgchLloRrKQ
+chat_id=2114374143

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localización GPS de Caravana</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+        #map-container {
+            text-align: center;
+            margin: 20px auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            background-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>GPS de Caravana</h1>
+    <div id="map-container">
+        <div id="map"></div>
+        <button class="btn" id="start-tracking-btn">Activar Seguimiento</button>
+        <button class="btn" id="stop-tracking-btn">Desactivar Seguimiento</button>
+        <button class="btn" onClick="javascript:window.open('https://www.google.com/maps/dir/?api=1&destination={{latitude}},{{longitude}}&travelmode=bicycling', '_blank');">Ver Ruta en Google Maps</button>
+        <!--  <button class="btn" onClick="javascript:window.open('https://www.google.com/maps/dir/${data.latitude},${data.longitude}/{{latitude}},{{longitude}}', '_blank');">Ver Ruta en Google Maps</button>
+	-->
+        <br>
+        <br>
+        <form method="GET">
+            <button type="submit" formaction="/"> INICIO </button>
+        </form>
+        <br>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([{{ latitude }}, {{ longitude }}], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var marker = L.marker([{{ latitude }}, {{ longitude }}]).addTo(map);
+
+        function updateMap() {
+            fetch('/gps/')
+                .then(response => response.json())
+                .then(data => {
+                    var latLng = [data.latitude, data.longitude];
+                    map.setView(latLng, 13);
+                    marker.setLatLng(latLng);
+                    document.getElementById('view-route-btn').href = 'https://www.google.com/maps/dir/${data.latitude},${data.longitude}/{{latitude}},{{longitude}}';
+                    //document.getElementById('view-route-btn').href = 'http://www.google.es/maps/dir/40.547229,+-3.691365/40.4398889,-3.6620278/'; // UNI -> CASA
+                });
+        }
+
+        updateMap();
+        setInterval(updateMap, 30000); // Actualización cada 30 segundos
+
+        // Agregar manejadores de eventos para los botones
+        document.getElementById('start-tracking-btn').addEventListener('click', function() {
+            fetch('/start-tracking');
+        });
+
+        document.getElementById('stop-tracking-btn').addEventListener('click', function() {
+            fetch('/stop-tracking');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="max-width=150, initial-scale=1.0">
+  <title>ALARMAS</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .container {
+      margin-top: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+    }
+
+    body1 {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    
+    #una-capa {
+      margin: 0 auto;
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1{
+      color: blue;
+      font-size: 24px;
+      text-align: center;
+    }
+  
+    h2{
+      color: blue;
+      font-size: 20px;
+      text-align: center;
+    }
+  
+    p1{
+      color: black;
+      font-size: 16px;
+      text-align: left;
+    }
+  
+    p2{
+      color: black;
+      font-size: 16px;
+    }
+    
+    p3{
+      color: red;
+      font-size: 18px;
+    }
+  </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <h1>CONTROL DE ALARMAS</h1>
+      <br>
+      <form method="GET"> <!-- Funcion def reloadalarmas en linea 490 flaskraspberrychopped.py -->
+        <button type="submit" formaction="/reloadalarmas/" > LIMPIAR MENSAJES ANTIGUOS </button>
+      </form>
+      <br>
+      <p3>FICHERO DE MENSAJES DE ALARMA:</p3>
+      <br>
+      <br>
+      <p1> {{ filecont | safe }} </p1>
+      <br>
+      <br>
+      <h2>Posible trabajo futuro:</h2>
+      <p1>Almacenamiento y gestión de mensajes mediante una base de datos. Cambiar la manera de leer los datos utilizando una base de datos en vez de un archivo de texto plano.</p1>
+      <br>
+      <br>
+      <img src="{{ url_for('static', filename='images/alarma.jpg') }} " width=200 height=200>
+      <br>
+      <br>
+      <form method="GET">
+          <button type="submit" formaction="/"> INICIO </button>
+      </form>
+      <br>
+      <br>
+    </div>
+  </body>  
+  
+  </HTML> 
+  
+  
